@@ -330,18 +330,21 @@ export default function Page() {
 
       {/* ===== CHATBOT WIDGET ===== */}
       <button
-        className="chatbot-widget-btn"
+        className={`chatbot-widget-btn ${isChatOpen ? "chatbot-widget-btn--open" : ""}`}
         onClick={() => setIsChatOpen(!isChatOpen)}
-        aria-label="Abrir test vocacional"
+        aria-expanded={isChatOpen}
+        aria-label={isChatOpen ? "Cerrar test vocacional" : "Abrir test vocacional"}
       >
         {isChatOpen ? "✖" : "💡"}
       </button>
 
-      {isChatOpen && (
-        <div className="chatbot-widget-container">
-          <Chat />
-        </div>
-      )}
+      <div
+        className={`chatbot-widget-container ${
+          isChatOpen ? "" : "chatbot-widget-container--hidden"
+        }`}
+      >
+        <Chat />
+      </div>
     </>
   )
 }

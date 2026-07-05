@@ -646,6 +646,15 @@
   transform: scale(1.08) translateY(-4px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
+.chatbot-widget-btn {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.3s ease, background 0.3s ease;
+}
+.chatbot-widget-btn--open {
+  transform: scale(1.04);
+  background: linear-gradient(135deg, #2f5fd0, #1a2355);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.32);
+}
 .chatbot-widget-container {
   position: fixed;
   bottom: 110px;
@@ -662,6 +671,12 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+}
+
+.chatbot-widget-container--hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* ---------- POPUP (certificado, slider) ---------- */
