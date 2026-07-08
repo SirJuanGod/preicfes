@@ -1,54 +1,54 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import './globals.css'
+import './global.css'
 
 export const metadata: Metadata = {
-  title: 'Pre ICFES Gratuito 📚🧑‍💻',
-  description: 'Preicfes gratuito para jóvenes en Bogotá. Prepárate para las pruebas Saber 11.',
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
+    title: 'Pre ICFES Gratuito 📚🧑‍💻',
+    description: 'Preicfes gratuito para jóvenes en Bogotá. Prepárate para las pruebas Saber 11.',
+    generator: 'v0.app',
+    icons: {
+        icon: [
+            {
+                url: '/icon-light-32x32.png',
+                media: '(prefers-color-scheme: light)',
+            },
+            {
+                url: '/icon-dark-32x32.png',
+                media: '(prefers-color-scheme: dark)',
+            },
+            {
+                url: '/icon.svg',
+                type: 'image/svg+xml',
+            },
+        ],
+        apple: '/apple-icon.png',
+    },
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
+    colorScheme: 'light dark',
+    themeColor: [
+        { media: '(prefers-color-scheme: light)', color: 'white' },
+        { media: '(prefers-color-scheme: dark)', color: 'black' },
+    ],
 }
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode
+    children: React.ReactNode
 }>) {
-  return (
-    <html lang="es">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
-      </head>
-      <body className="antialiased" style={{ fontFamily: 'Poppins, system-ui, sans-serif', backgroundColor: '#f5f7fa', color: '#1f2a63' }}>
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
-      </body>
-    </html>
-  )
+    return (
+        <html lang="es">
+            <head>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+            </head>
+            <body className="antialiased" style={{ fontFamily: 'Poppins, system-ui, sans-serif', backgroundColor: '#f5f7fa', color: '#1f2a63' }}>
+                {children}
+                {process.env.NODE_ENV === 'production' && <Analytics />}
+            </body>
+        </html>
+    )
 }
