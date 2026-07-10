@@ -1,11 +1,33 @@
+import { Poppins } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './global.css'
 
+const poppins = Poppins({
+    weight: ['400', '600', '700', '800'],
+    subsets: ['latin'],
+    display: 'swap',
+})
+
 export const metadata: Metadata = {
+    metadataBase: new URL('https://www.preicfesgratuito.com'),
     title: 'Pre ICFES Gratuito 📚🧑‍💻',
-    description: 'Preicfes gratuito para jóvenes en Bogotá. Prepárate para las pruebas Saber 11.',
+    description: 'Preicfes gratuito para jóvenes en Bogotá. Prepárate para las pruebas Saber 11 con simulacros y test vocacionales con IA.',
+    keywords: ['preicfes', 'saber 11', 'icfes gratuito', 'bogotá', 'test vocacional', 'preparación icfes', 'simulacros icfes'],
     generator: 'v0.app',
+    openGraph: {
+        title: 'Pre ICFES Gratuito 📚🧑‍💻 | Prepárate para el Saber 11',
+        description: 'Preicfes 100% gratuito para jóvenes. Prepárate con nuestra IA y test vocacionales.',
+        url: 'https://www.preicfesgratuito.com',
+        siteName: 'Pre ICFES Gratuito',
+        locale: 'es_CO',
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Pre ICFES Gratuito 📚🧑‍💻',
+        description: 'Prepárate para las pruebas Saber 11. Preicfes gratuito para jóvenes.',
+    },
     icons: {
         icon: [
             {
@@ -41,11 +63,8 @@ export default function RootLayout({
     return (
         <html lang="es">
             <head>
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
             </head>
-            <body className="antialiased" style={{ fontFamily: 'Poppins, system-ui, sans-serif', backgroundColor: '#f5f7fa', color: '#1f2a63' }}>
+            <body className={`${poppins.className} antialiased`} style={{ backgroundColor: '#f5f7fa', color: '#1f2a63' }}>
                 {children}
                 {process.env.NODE_ENV === 'production' && <Analytics />}
             </body>

@@ -1,8 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { Chat } from "@/components/chat"
+import Image from "next/image"
+import dynamic from "next/dynamic"
 import "./landing.css"
+
+const Chat = dynamic(() => import("@/components/chat").then(mod => mod.Chat), { ssr: false })
 
 // Datos de localidades para generar las tarjetas
 const LOCALIDADES = [
@@ -125,7 +128,7 @@ export default function Page() {
             <nav className="navbar">
                 <div className="nav-container">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="https://www.preicfesgratuito.com/assets/icon/logo.png" alt="Preicfes Gratuito" className="nav-logo" />
+                    <Image src="https://www.preicfesgratuito.com/assets/icon/logo.png" alt="Preicfes Gratuito" className="nav-logo" width={800} height={800} style={{ objectFit: "contain" }} />
                     <div className="nav-buttons">
                         <a href="/login" className="btn-login">Iniciar sesión</a>
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLScdw5BdO9yilAQvyFCqexUdwy9fVdBSsW0KD7DzzvfP7g--yw/viewform" className="btn-inscribete">Inscribete</a>
@@ -156,11 +159,11 @@ export default function Page() {
                     <div className="hero-media">
                         <div className="hero-media-main">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src="https://www.preicfesgratuito.com/assets/anuncios/Prepeople.jpg" alt="Estudiantes preparándose" />
+                            <Image src="https://www.preicfesgratuito.com/assets/anuncios/Prepeople.jpg" alt="Estudiantes preparándose" width={800} height={800} style={{ objectFit: "contain" }} />
                         </div>
                         <div className="hero-media-secondary">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src="https://www.preicfesgratuito.com/assets/anuncios/2Pre.jpg" alt="Estudiante escribiendo" />
+                            <Image src="https://www.preicfesgratuito.com/assets/anuncios/2Pre.jpg" alt="Estudiante escribiendo" width={800} height={800} style={{ objectFit: "contain" }} />
                         </div>
                         <div className="hero-chip hero-chip-score">
                             <strong>+500 pts</strong>
@@ -173,7 +176,7 @@ export default function Page() {
                         <div className="instagram-link">
                             <a href="https://www.instagram.com/preicfesjovenesbogota/" target="_blank" rel="noopener noreferrer">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img src="https://www.preicfesgratuito.com/assets/instagram/Instagram_icon.png" alt="Instagram" className="instagram-logo" />
+                                <Image src="https://www.preicfesgratuito.com/assets/instagram/Instagram_icon.png" alt="Instagram" className="instagram-logo" width={800} height={800} style={{ objectFit: "contain" }} />
                                 <span>Síguenos</span>
                             </a>
                         </div>
@@ -203,7 +206,7 @@ export default function Page() {
                     {[1, 2, 3, 4].map((n) => (
                         <a key={n} href="https://www.instagram.com/preicfesjovenesbogota/" target="_blank" rel="noopener noreferrer" className="instagram-item">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={`https://www.preicfesgratuito.com/assets/instagram/insta${n}.png`} alt={`Instagram post ${n}`} />
+                            <Image src={`https://www.preicfesgratuito.com/assets/instagram/insta${n}.png`} alt={`Instagram post ${n}`} width={800} height={800} style={{ objectFit: "contain" }} />
                         </a>
                     ))}
                 </div>
@@ -216,19 +219,19 @@ export default function Page() {
                     <div className="causa-card">
                         <h3>Educación</h3>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://www.preicfesgratuito.com/assets/micausaes/micausaes1.png" alt="Icono de educación" className="causa-icon" />
+                        <Image src="https://www.preicfesgratuito.com/assets/micausaes/micausaes1.png" alt="Icono de educación" className="causa-icon" width={800} height={800} style={{ objectFit: "contain" }} />
                         <p>Creamos que la educación es la base para transformar realidades.</p>
                     </div>
                     <div className="causa-card">
                         <h3>Equidad</h3>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://www.preicfesgratuito.com/assets/micausaes/micausaes2.png" alt="Icono de equidad" className="causa-icon" />
+                        <Image src="https://www.preicfesgratuito.com/assets/micausaes/micausaes2.png" alt="Icono de equidad" className="causa-icon" width={800} height={800} style={{ objectFit: "contain" }} />
                         <p>Todos los jóvenes merecen las mismas oportunidades.</p>
                     </div>
                     <div className="causa-card">
                         <h3>Compromiso social</h3>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://www.preicfesgratuito.com/assets/micausaes/micausaes3.png" alt="Icono de compromiso social" className="causa-icon" />
+                        <Image src="https://www.preicfesgratuito.com/assets/micausaes/micausaes3.png" alt="Icono de compromiso social" className="causa-icon" width={800} height={800} style={{ objectFit: "contain" }} />
                         <p>Trabajamos por una Bogotá con más acceso al conocimiento.</p>
                     </div>
                 </div>
@@ -264,7 +267,7 @@ export default function Page() {
                 <div className="certificate-card">
                     <div>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://www.preicfesgratuito.com/assets/icon/logo.png" alt="Preicfes Logo" className="certificate-logo" />
+                        <Image src="https://www.preicfesgratuito.com/assets/icon/logo.png" alt="Preicfes Logo" className="certificate-logo" width={800} height={800} style={{ objectFit: "contain" }} />
                         <h2>¿Eres estudiante?</h2>
                         <p className="section-text">Descarga tu certificado y verifica tu participación en el programa.</p>
                     </div>
@@ -279,7 +282,7 @@ export default function Page() {
                     {LOCALIDADES.map((loc) => (
                         <div key={loc.nombre} className="localidad-card">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={loc.img} alt={loc.alt} />
+                            <Image src={loc.img} alt={loc.alt} width={600} height={400} style={{ objectFit: "cover" }} />
                             <div className="localidad-info">
                                 <h3>{loc.nombre}</h3>
                                 <p className="coordinador">
@@ -292,7 +295,7 @@ export default function Page() {
                                         {loc.maps && (
                                             <a href={loc.maps} target="_blank" rel="noopener noreferrer" className="maps-link">
                                                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                                                <img src="https://www.preicfesgratuito.com/assets/maps.png" alt="Ver en Maps" />
+                                                <Image src="https://www.preicfesgratuito.com/assets/maps.png" alt="Ver en Maps" width={800} height={800} style={{ objectFit: "contain" }} />
                                                 <span>Ver en Maps</span>
                                             </a>
                                         )}
@@ -311,17 +314,17 @@ export default function Page() {
                 <div className="social-links">
                     <a href="https://www.instagram.com/preicfesjovenesbogota/" target="_blank" rel="noopener noreferrer" className="social-link">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://www.preicfesgratuito.com/assets/social/instagram.png" alt="Instagram" />
+                        <Image src="https://www.preicfesgratuito.com/assets/social/instagram.png" alt="Instagram" width={800} height={800} style={{ objectFit: "contain" }} />
                         <span>Instagram</span>
                     </a>
                     <a href="https://www.facebook.com/profile.php?id=100085044704018" target="_blank" rel="noopener noreferrer" className="social-link">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://www.preicfesgratuito.com/assets/social/facebook.png" alt="Facebook" />
+                        <Image src="https://www.preicfesgratuito.com/assets/social/facebook.png" alt="Facebook" width={800} height={800} style={{ objectFit: "contain" }} />
                         <span>Facebook</span>
                     </a>
                     <a href="https://www.tiktok.com/@preicfesjovenesbogota" target="_blank" rel="noopener noreferrer" className="social-link">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://www.preicfesgratuito.com/assets/social/tiktok.png" alt="TikTok" />
+                        <Image src="https://www.preicfesgratuito.com/assets/social/tiktok.png" alt="TikTok" width={800} height={800} style={{ objectFit: "contain" }} />
                         <span>TikTok</span>
                     </a>
                 </div>
